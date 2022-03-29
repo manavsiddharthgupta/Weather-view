@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./main.js" defer></script>
+    <title>Weather</title>
+</head>
+<body>
+    <nav>
+        <form action="" class="search-bar">
+            <input class="searchInput" type="text" placeholder="Search for location">
+            <img src="./images/icons8-search.svg" alt="" class="search-icon">
+        </form>
+        
+        <div class="nav-bar-content">
+            <div class="popular-card">
+                <!-- <div class="popular-cities">
+                    <p class="popular-cities-name"></p>>Delhi, India</p>
+                    <p class="popularCities-temp">3&deg;C</p>
+                </div>
+                <div class="popular-cities">
+                    <p class="popular-cities-name">Bangalore, India</p>
+                    <p class="popularCities-temp">3&deg;C</p>
+                </div>
+                <div class="popular-cities">
+                    <p class="popular-cities-name">Mumbai, India</p>
+                    <p class="popularCities-temp">3&deg;C</p>
+                </div>
+                <div class="popular-cities">
+                    <p class="popular-cities-name">Kolkata, India</p>
+                    <p class="popularCities-temp">3&deg;C</p>
+                </div> -->
+            </div>
+            <div class="scroll">
+                <button class="left slide">&lt;</button>
+                <button class="right slide">&gt;</button>
+            </div>
+        </div>
+        <div class="cel-and-far">
+            <span class="far">&deg;F</span>
+            <span class="cel activeState">&deg;C</span>
+        </div>
+    </nav>
+    <header class="container">
+        <section class="main-card">
+            <div class="city-details">
+                <h1 class="city-name">London</h1>
+                <h1 class="city-time">4:39 pm</h1>
+            </div>
+            <div class="main-weather">
+                <h1 class="temp">18&deg;</h1>
+            </div>
+            <div class="condition">
+                <p>Sunny</p>
+                <div>
+                    <img class="icons" src="./icon/02d.png" alt="">
+                </div>
+            </div>
+            <div class="weather-detail">
+                <div class="wh wind">
+                    <p>WIND</p>
+                    <p class="data">4 km/h</p>
+                </div>
+                <div class="wh humidity">
+                    <p>HUMIDITY</p>
+                    <p class="data">4.7%</p>
+                </div>
+                <div class="wh pressure">
+                    <p>PRESSURE</p>
+                    <p class="data">1002 mb</p>
+                </div>
+                <div class="wh something">
+                    <p>DEW POINTS</p>
+                    <p class="data">10</p>
+                </div>
+            </div>
+        </section>
+        <section class="overview">
+            <button class="left-ovr slide-overview">&lt;</button>
+            <button class="right-ovr slide-overview">&gt;</button>
+            <div class="overview-card"></div>
+        </section>
+    </header>
+</body>
+</html>
