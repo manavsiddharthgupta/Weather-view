@@ -102,9 +102,7 @@ setlocation();
 function setlocation(){
     navigator.geolocation.getCurrentPosition((success)=>{
         let {latitude, longitude} = success.coords;
-        fetch(
-            `http://www.mapquestapi.com/geocoding/v1/reverse?key=DbPqL9bmEV3RMTMUj2fcpL3n33CtqrV3&location=${latitude},${longitude}&includeRoadMetadata=true&includeNearestIntersection=true`,
-          )
+        fetch(`http://www.mapquestapi.com/geocoding/v1/reverse?key=DbPqL9bmEV3RMTMUj2fcpL3n33CtqrV3&location=${latitude},${longitude}&includeRoadMetadata=true&includeNearestIntersection=true`)
             .then((response) => response.json())
             .then((responseJson) => {
                 cityName.textContent = responseJson.results[0].locations[0].adminArea5;
