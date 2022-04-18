@@ -56,6 +56,7 @@ nav .search-bar{
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 200;
 }
+
 .search-icon{
     display: inline;
     position: absolute;
@@ -64,6 +65,18 @@ nav .search-bar{
     top: 50%;
     right: 4%;
     transform: translateY(-50%);
+}
+@media (max-width:500px){
+    nav{
+        padding: 0% 1%;
+    }
+    .searchInput{
+        width: 90%;
+    }
+    .search-icon{
+        
+        right: 14%;
+    }
 }
 
 .popular-card{
