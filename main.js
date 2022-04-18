@@ -42,20 +42,29 @@ const wind = document.querySelector(".wind .data");
 const humidity = document.querySelector(".humidity .data");
 const pressure  = document.querySelector(".pressure .data");
 const dewPoints = document.querySelector(".something .data");
+const unitCel = document.querySelector(".cel");
+const unitfar = document.querySelector(".far");
+const unit = document.querySelector(".cel-and-far");
 
-const currentTime = new Date();
-let hr = currentTime.getHours();
-hr = hr%12;
-let hrandmin = `${hr}:${currentTime.getMinutes()}`;
-time.textContent = hrandmin;
+const setTime = () =>{
+    const currentTime = new Date();
+    let hr = currentTime.getHours();
+    hr = hr%12;
+    let hrandmin = `${hr}:${currentTime.getMinutes()}`;
+    time.textContent = hrandmin;
+}
+setTime();
+setInterval(setTime,1000);
 
 let weather = {
     apiKey : "899775a68a9f80c7844d1b62fd302bec"
 }
 
+let takingCity = ""; 
 input.addEventListener('submit',(e)=>{
     e.preventDefault()
     let city = e.target.firstElementChild.value;
+    takingCity = city;
     getLocation(city);
     e.target.firstElementChild.value = "";
 })
@@ -70,7 +79,12 @@ function getLocation(city){
     }).then((resp)=>{
         console.log(resp);
         cityName.textContent = resp.name;
-        getWeatherData(resp.coord.lat,resp.coord.lon,"metric","c","mt/s");
+        if(unitCel.classList.contains("activeState")){
+            getWeatherData(resp.coord.lat,resp.coord.lon,"metric","c","mt/s");
+        } else {
+            getWeatherData(resp.coord.lat,resp.coord.lon,"imperial","f"," m/h");
+        }
+        
     }).catch((err)=>{
         console.log("something got error",err);
     })
@@ -107,7 +121,12 @@ function setlocation(){
             .then((responseJson) => {
                 cityName.textContent = responseJson.results[0].locations[0].adminArea5;
             });
-        getWeatherData(latitude,longitude,"metric","c"," mt/s");
+            console.log(unitCel.classList);
+            if(unitCel.classList.contains("activeState")){
+                getWeatherData(latitude,longitude,"metric","c"," m/s");
+            } else {
+                getWeatherData(latitude,longitude,"imperial","f"," m/h");
+            }
 
     })
 }
@@ -121,6 +140,7 @@ function getWeatherData(latitude, longitude, units, unitdeg, unitspeed){
         }).catch(()=>{
             console.log("error")
         })
+        
 }
 
 function showweatherdata(weatherdata, unitdeg, unitspeed){
@@ -175,7 +195,28 @@ function showoverviewData(data){
 }
 
 
+unit.addEventListener('click',(e)=>{
+    if(e.target.classList.contains("cel")){
+        unitfar.classList.remove("activeState");
+        e.target.classList.add("activeState");
+        if(takingCity == ""){
+            setlocation();
+        } else {
+            getLocation(takingCity);
+        }
+        
+    } else {
+        unitCel.classList.remove("activeState");
+        e.target.classList.add("activeState");
+        if(takingCity == ""){
+            setlocation();
+        } else {
+            getLocation(takingCity);
+        }
+        
+    }
 
+})
 
 
 
