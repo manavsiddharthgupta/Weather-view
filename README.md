@@ -1,6 +1,6 @@
 # Weather-Views
 
-
+Views is a organized weather web application that uses HTML CSS and venilla Javascript, it gives you a full weekly forecast data such as temperature/min&max, preasure, wind speed and so on.
 
 ## Preview
 <img width="700" alt="image" src="https://user-images.githubusercontent.com/79929708/164183297-b1b43b8a-eb83-4d08-b7d5-51caaa9bfd93.png">
